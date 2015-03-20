@@ -1,14 +1,16 @@
-Copy-Item ..\Framework\build_win32\ExternalDependenciesOpenAl.userprops.template ..\Framework\build_win32\ExternalDependenciesOpenAl.userprops
-Copy-Item ..\CodeGen\build_win32\ExternalDependencies.userprops.template ..\CodeGen\build_win32\ExternalDependencies.userprops
-Copy-Item ..\Play\build_win32\ExternalDependencies.userprops.template ..\Play\build_win32\ExternalDependencies.userprops
+$PSScriptRoot = Split-Path -Parent -Path $MyInvocation.MyCommand.Definition
 
-$path = '..\CodeGen\build_win32\ExternalDependencies.userprops'
+Copy-Item $PSScriptRoot\..\Framework\build_win32\ExternalDependenciesOpenAl.userprops.template $PSScriptRoot\..\Framework\build_win32\ExternalDependenciesOpenAl.userprops
+Copy-Item $PSScriptRoot\..\CodeGen\build_win32\ExternalDependencies.userprops.template $PSScriptRoot\..\CodeGen\build_win32\ExternalDependencies.userprops
+Copy-Item $PSScriptRoot\..\Play\build_win32\ExternalDependencies.userprops.template $PSScriptRoot\..\Play\build_win32\ExternalDependencies.userprops
+
+$path = $PSScriptRoot + '\..\CodeGen\build_win32\ExternalDependencies.userprops'
 $xml = [xml](Get-Content $path)
 $node = $xml.Project.PropertyGroup | where {$_.Label -eq 'UserMacros'}
 $node.FRAMEWORK.Value = '..\..\Framework'
 $xml.Save($path)
 
-$path = '..\Play\build_win32\ExternalDependencies.userprops'
+$path = $PSScriptRoot + '\..\Play\build_win32\ExternalDependencies.userprops'
 $xml = [xml](Get-Content $path)
 $node = $xml.Project.PropertyGroup | where {$_.Label -eq 'UserMacros'}
 $node.FRAMEWORK.Value = '..\..\Framework'
