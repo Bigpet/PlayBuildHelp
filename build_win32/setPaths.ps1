@@ -7,14 +7,13 @@ Copy-Item $PSScriptRoot\..\Play\build_win32\ExternalDependencies.userprops.templ
 $path = $PSScriptRoot + '\..\CodeGen\build_win32\ExternalDependencies.userprops'
 $xml = [xml](Get-Content $path)
 $node = $xml.Project.PropertyGroup | where {$_.Label -eq 'UserMacros'}
-$node.FRAMEWORK.Value = '..\..\Framework'
+$node.FRAMEWORK_PATH = '..\..\Framework'
 $xml.Save($path)
 
 $path = $PSScriptRoot + '\..\Play\build_win32\ExternalDependencies.userprops'
 $xml = [xml](Get-Content $path)
 $node = $xml.Project.PropertyGroup | where {$_.Label -eq 'UserMacros'}
-$node.FRAMEWORK.Value = '..\..\Framework'
-$node.CODEGEN.Value = '..\..\CodeGen'
-$node.BZLIB_PATH.Value = '..\..\Dependencies\build_win32'
+$node.FRAMEWORK_PATH = '..\..\Framework'
+$node.CODEGEN_PATH = '..\..\CodeGen'
+$node.BZLIB_PATH = '..\..\Dependencies\build_win32'
 $xml.Save($path)
-
