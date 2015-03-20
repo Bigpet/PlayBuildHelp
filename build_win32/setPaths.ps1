@@ -15,5 +15,5 @@ $xml = [xml](Get-Content $path)
 $node = $xml.Project.PropertyGroup | where {$_.Label -eq 'UserMacros'}
 $node.FRAMEWORK_PATH = '..\..\Framework'
 $node.CODEGEN_PATH = '..\..\CodeGen'
-$node.BZLIB_PATH = '..\..\Dependencies\build_win32'
+$node.BZLIB_PATH = '..\..\Dependencies\bzip2-1.0.6'
 $xml.Save($path)
