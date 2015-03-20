@@ -7,3 +7,6 @@
 [submodule "CodeGen"]
 	path = CodeGen
 	url = https://github.com/jpd002/Play--CodeGen.git
+[submodule "Dependencies"]
+	path = Dependencies
+	url = https://github.com/jpd002/Play-Dependencies.git
