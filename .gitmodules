@@ -1,3 +1,11 @@
 [submodule "Play"]
 	path = Play
 	url = https://github.com/jpd002/Play-.git
+
+[submodule "Framework"]
+	path = Framework
+	url = https://github.com/jpd002/Play--Framework.git
+
+[submodule "Framework"]
+	path = CodeGen
+	url = https://github.com/jpd002/Play--CodeGen.git
